@@ -1,0 +1,5 @@
+alias ls="exa --long"
+
+alias so="cd /home/carlos/Codigo/SO"
+alias pp="cd /home/carlos/Codigo/PP"
+alias algo="cd /home/carlos/Codigo/ALGO"
