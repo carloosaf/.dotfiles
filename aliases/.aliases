@@ -1,4 +1,5 @@
-alias ls="exa --long"
+alias ls="exa --long --grid --all --icons --sort=type"
+alias c="cd .."
 
 alias so="cd /home/carlos/Codigo/SO"
 alias pp="cd /home/carlos/Codigo/PP"

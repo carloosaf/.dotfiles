@@ -50,11 +50,12 @@ zle -N zle-line-init
 echo -ne '\e[5 q' # Use beam shape cursor on startup.
 preexec() { echo -ne '\e[5 q' ;} # Use beam shape cursor for each new prompt.
 
-# Load Starchipo prompt
-eval "$(starship init zsh)"
 
 # Aliases
 source .aliases
+
+# Load Starchipo prompt
+eval "$(starship init zsh)"
 
 # Syntax highlighting 
 # zsh-syntax-highlighting and zsh-autosuggestions packages installed with pacman

@@ -1,0 +1,28 @@
+format= """
+$cmd_duration\
+$username\
+$hostname\
+$directory\
+$git_branch\
+$git_commit\
+$git_state\
+$git_status\
+$jobs\
+$battery\
+$character\
+"""
+add_newline = false
+
+[directory]
+style = "bold blue"
+
+[character]                            
+vicmd_symbol = "[](fg:bold green)"
+error_symbol = "[✗](bold red) "
+success_symbol = "[➜](bold green)"     
+
+[cmd_duration]
+format = "Took [$duration]($style) \n" #Places duratin in a line before the actual prompt
+
+[jobs]
+symbol = "✦ " #Added whitespace aftere symbol so the font doesnt overlap
