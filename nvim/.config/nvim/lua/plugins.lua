@@ -5,12 +5,8 @@ require('packer').startup(function()
   use 'arcticicestudio/nord-vim'
   use 'mhartington/oceanic-next'
   use 'sainnhe/everforest'
-  use {'nvim-treesitter/nvim-treesitter',
-        highlight = {
-            enable = true,
-            additional_vim_regex_highlighting = false,
-        },
-  }
+  use'rose-pine/neovim'
+  use {'nvim-treesitter/nvim-treesitter'}
 
   -- Autocompletion/LSP
   
@@ -50,8 +46,5 @@ use {"lukas-reineke/indent-blankline.nvim"}
 end)  -- end packer startup
 
 
-require('lualine').setup{
-  options = {theme = 'nord'},
-}
 
-vim.opt.list = false
+

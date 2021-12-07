@@ -31,3 +31,12 @@ vim.bo.expandtab = true
 
 vim.cmd [[colorscheme nord]]
 
+vim.opt.list = false
+
+--vim.g.rose_pine_disable_italics = true
+--require('rose-pine').set('moon')
+
+require('lualine').setup{
+  options = {theme = 'nord'},
+}
+
