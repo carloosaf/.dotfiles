@@ -27,9 +27,15 @@ require('packer').startup(function()
 }
 
   -- Telescope
-  use {
+use {
     'nvim-telescope/telescope.nvim',
     requires = { {'nvim-lua/plenary.nvim'} },
+}
+use {'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
+use {"AckslD/nvim-neoclip.lua",
+    config = function()
+        require('neoclip').setup()
+    end,
 }
 
 -- Which key
@@ -44,7 +50,3 @@ use {"lukas-reineke/indent-blankline.nvim"}
 
 
 end)  -- end packer startup
-
-
-
-

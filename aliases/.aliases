@@ -4,3 +4,7 @@ alias c="cd .."
 alias so="cd /home/carlos/Codigo/SO"
 alias pp="cd /home/carlos/Codigo/PP"
 alias algo="cd /home/carlos/Codigo/ALGO"
+
+alias ga="git add"
+alias gc="git commit -m"
+alias gp="git push"
