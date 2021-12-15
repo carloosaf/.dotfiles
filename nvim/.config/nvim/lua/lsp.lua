@@ -99,10 +99,10 @@ nvim_lsp.ocamllsp.setup{
   cmd = {"/home/carlos/.opam/default/bin/ocamllsp"},
   root_dir = require("lspconfig").util.root_pattern('*.ml')
 }
-
 nvim_lsp.zls.setup{
   cmd = {"/home/carlos/zls/zls"}
 }
+nvim_lsp.jdtls.setup{on_attach = on_attach,}
 
 nvim_lsp.gdscript.setup{}
 

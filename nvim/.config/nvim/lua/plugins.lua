@@ -33,9 +33,9 @@ use {
 }
 use {'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
 use {"AckslD/nvim-neoclip.lua",
-    config = function()
-        require('neoclip').setup()
-    end,
+     config = function()
+         require('neoclip').setup()
+     end
 }
 
 -- Which key
@@ -43,10 +43,20 @@ use {"folke/which-key.nvim",}
 
 -- Movement
 use {'phaazon/hop.nvim',
-  branch = 'v1', -- optional but strongly recommended
+    branch = 'v1',
+    config = function()
+        require'hop'.setup { keys = 'etovxqpdygfblzhckisuran' }
+    end,
 }
 -- Add backet lines
-use {"lukas-reineke/indent-blankline.nvim"}
+use {"lukas-reineke/indent-blankline.nvim",}
 
+-- Commentary
+ use {
+    'numToStr/Comment.nvim',
+    config = function()
+        require('Comment').setup()
+    end,
+}
 
 end)  -- end packer startup

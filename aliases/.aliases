@@ -1,10 +1,13 @@
-alias ls="exa --long --grid --all --icons --sort=type"
+alias ls="exa --long --all --icons --sort=type"
 alias c="cd .."
 
 alias so="cd /home/carlos/Codigo/SO"
 alias pp="cd /home/carlos/Codigo/PP"
 alias algo="cd /home/carlos/Codigo/ALGO"
+alias dots="cd /home/carlos/.dotfiles"
 
 alias ga="git add"
 alias gc="git commit -m"
 alias gp="git push"
+
+alias vi="nvim"
