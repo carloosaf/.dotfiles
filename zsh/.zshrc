@@ -1,4 +1,4 @@
-./fm6000
+/home/carlos/fm6000
 
 #Enable colors
 autoload -U colors && colors

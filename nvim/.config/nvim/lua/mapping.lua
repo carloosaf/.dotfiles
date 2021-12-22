@@ -1,25 +1,29 @@
+local opts = {noremap = true, silent = true}
+
+local keymap = vim.api.nvim_set_keymap
+
 vim.g.mapleader = " " 
 
 -- General
-vim.api.nvim_set_keymap('i', 'jk', '<Esc>', {noremap = true}) -- Insert -> Normal
-vim.api.nvim_set_keymap('n', '<leader>w', '<cmd>w<cr>', {noremap = true}) -- Write
-vim.api.nvim_set_keymap('n', '<leader>q', '<cmd>q<cr>', {noremap = true}) -- Quit
+keymap('i', 'jk', '<Esc>', opts) -- Insert -> Normal
+keymap('n', '<leader>w', '<cmd>w<cr>', opts) -- Write
+keymap('n', '<leader>q', '<cmd>q<cr>', opts) -- Quit
 
 -- Window navigation
-vim.api.nvim_set_keymap('n', '<leader>h', '<C-w>h', {noremap = true}) 
-vim.api.nvim_set_keymap('n', '<leader>j', '<C-w>j', {noremap = true})
-vim.api.nvim_set_keymap('n', '<leader>k', '<C-w>k', {noremap = true}) 
-vim.api.nvim_set_keymap('n', '<leader>l', '<C-w>l', {noremap = true})
+keymap('n', '<leader>h', '<C-w>h', opts) 
+keymap('n', '<leader>j', '<C-w>j', opts)
+keymap('n', '<leader>k', '<C-w>k', opts) 
+keymap('n', '<leader>l', '<C-w>l', opts)
 
 -- Telescope
-vim.api.nvim_set_keymap('n', '<leader>.', ':Telescope file_browser<cr>', {noremap = true}) 
-vim.api.nvim_set_keymap('n', '<leader>tff', ':Telescope find_files<cr>', {noremap = true}) 
-vim.api.nvim_set_keymap('n', '<leader>tn', ':Telescope neoclip<cr>', {noremap = true}) 
+keymap('n', '<leader>.', ':Telescope file_browser<cr>', opts) 
+keymap('n', '<leader>tff', ':Telescope find_files<cr>', opts) 
+keymap('n', '<leader>tn', ':Telescope neoclip<cr>', opts) 
 
 --Hop
-vim.api.nvim_set_keymap('n', '<leader>hw', '<cmd>HopWord<cr>', {noremap = true})
-vim.api.nvim_set_keymap('n', '<leader>hc', '<cmd>HopChar1<cr>', {noremap = true})
-vim.api.nvim_set_keymap('n', '<leader>hl', '<cmd>HopLine<cr>', {noremap = true})
+keymap('n', '<leader>hw', '<cmd>HopWord<cr>', opts)
+keymap('n', '<leader>hc', '<cmd>HopChar1<cr>', opts)
+keymap('n', '<leader>hl', '<cmd>HopLine<cr>', opts)
 
 
                    -----------------
