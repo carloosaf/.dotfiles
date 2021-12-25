@@ -4,6 +4,8 @@ local keymap = vim.api.nvim_set_keymap
 
 vim.g.mapleader = " " 
 
+-- :tnoremap <Esc> <C-\><C-n>
+
 -- General
 keymap('i', 'jk', '<Esc>', opts) -- Insert -> Normal
 keymap('n', '<leader>w', '<cmd>w<cr>', opts) -- Write
