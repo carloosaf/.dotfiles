@@ -90,6 +90,7 @@ cmp.setup{
                -- LSP CONFIG --
                ----------------
 
+--[[
 nvim_lsp.pyright.setup{on_attach = on_attach,}
 
 nvim_lsp.ccls.setup{on_attach = on_attach,}
@@ -105,4 +106,4 @@ nvim_lsp.zls.setup{
 nvim_lsp.jdtls.setup{on_attach = on_attach,}
 
 nvim_lsp.gdscript.setup{}
-
+]]--
