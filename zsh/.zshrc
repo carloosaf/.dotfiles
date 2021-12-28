@@ -1,5 +1,5 @@
-/home/carlos/fm6000
-
+pfetch
+echo ""
 #Enable colors
 autoload -U colors && colors
 
