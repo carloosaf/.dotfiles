@@ -29,14 +29,14 @@ vim.bo.autoindent = true
 vim.o.expandtab = true
 vim.bo.expandtab = true
 
-vim.cmd [[colorscheme nord]]
+vim.cmd [[colorscheme rose-pine]]
 
 vim.opt.list = false
 
---vim.g.rose_pine_disable_italics = true
---require('rose-pine').set('moon')
+vim.g.rose_pine_disable_italics = true
+require('rose-pine').set('moon')
 
 require('lualine').setup{
-  options = {theme = 'nord'},
+  options = {theme = 'rose-pine'},
 }
 
