@@ -182,15 +182,16 @@ colors:
 
 font:
   size: 10.0
+  ligatures: true
   normal:
-    family: mononoki Nerd Font Mono
+    family: FantasqueSansMono Nerd Font Mono
     style: Regular
   Bold:
-    family: mononoki Nerd Font Mono
+    family: FantasqueSansMono Cove Nerd Font Mono
     style: Bold
   italic:
-    family: mononoki Nerd Font Mono
+    family: FantasqueSansMono Nerd Font Mono
     style: Italic
   bold_italic:
-    family: mononoki Nerd Font Mono
+    family: FantasqueSansMono Nerd Font Mono
     style: Bold Italic

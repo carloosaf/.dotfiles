@@ -16,6 +16,9 @@ add_newline = false
 [directory]
 style = "bold blue"
 
+[git_status]
+deleted = "✗ " #Default looks weird with my FantasqueSans font
+
 [character]                            
 vicmd_symbol = "[](fg:bold green)"
 error_symbol = "[✗](bold red) "

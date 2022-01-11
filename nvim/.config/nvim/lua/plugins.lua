@@ -93,7 +93,7 @@ use {'phaazon/hop.nvim',
     end,
 }
 -- Add backet lines
-use {"lukas-reineke/indent-blankline.nvim",}
+-- use {"lukas-reineke/indent-blankline.nvim",}
 
 -- Commentary
  use {
@@ -103,4 +103,10 @@ use {"lukas-reineke/indent-blankline.nvim",}
     end,
 }
 
+-- Tree
+use {'kyazdani42/nvim-tree.lua'}
+
+-- Bufferline
+use {'akinsho/bufferline.nvim'}
+ 
 end)  -- end packer startup

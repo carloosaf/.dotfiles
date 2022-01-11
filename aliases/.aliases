@@ -1,16 +1,46 @@
+
+              ###########
+              # GENERAL #
+              ###########
+
 alias ls="exa --long --all --icons --sort=type"
 alias c="cd .."
+alias vi="nvim"
+
+           ####################
+           # FRECUENT FOLDERS #
+           ####################
 
 alias so="cd /home/carlos/Codigo/SO"
 alias pp="cd /home/carlos/Codigo/PP"
 alias algo="cd /home/carlos/Codigo/ALGO"
 alias dots="cd /home/carlos/.dotfiles"
 
+
+                 #######
+                 # GIT #
+                 #######
+
+
 alias ga="git add"
 alias gc="git commit -m"
 alias gp="git push"
 
-alias vi="nvim"
+
+               ############
+               # DOTFILES #
+               ############
+
+
+alias dfnv="nvim /home/carlos/.dotfiles/nvim/.config/nvim/"
+alias dfa="nvim /home/carlos/.dotfiles/alacritty/.config/alacritty/alacritty.yml"
+alias dfz="nvim /home/carlos/.dotfiles/zsh/.zshrc"
+
+
+            ####################
+            # BATTERY TRESHOLD #
+            ####################
+
 
 # To enable battery conservation mode 
 # setcharging 1
