@@ -12,13 +12,16 @@ will symlink the dotfiles to its correct location.
 
 ## Aesthetic
 
-- 🎨Theme: Rosé Pine Moon
-- 🔤Font: Fantasque Sans Nerd Font
-- 📄Fetch: pfetch
-- 🌸[Wallpaper](https://github.com/rose-pine/wallpapers/blob/main/flower.jpg)
+- 🎨 Theme: Rosé Pine Moon
+- 🔤 Font: Fantasque Sans Nerd Font
+- 📄 Fetch: pfetch
+- 🌸 [Wallpaper](https://github.com/rose-pine/wallpapers/blob/main/flower.jpg)
 
 ## Apps
 
+- 🗔  Window Manager: [xmonad](./xmonad/.xmonad) (Modified version of Arcolinux default config, its a bit messy)
+- ↔️ Bar: [polybar](./polybar/.config/polybar/) (Also Arcolinux config)
+- 🏃 Launcher: [rofi](./rofi/.config/rofi/config.rasi)
 - 💻 Terminal: [alacritty](./alacritty/.config/alacritty/alacritty.yml)
 - 🐚 Shell: [zsh](./zsh/.zshrc)
 - 🚀 Shell prompt: [starship](./starship/.config/starship.toml)

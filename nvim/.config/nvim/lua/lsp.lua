@@ -82,6 +82,7 @@ cmp.setup{
   {name = "luasnip"},
   {name = "path"},
   {name = "buffer", keyword_length = 6},
+  {name = "orgmode"}
   },
 
 }
@@ -94,7 +95,9 @@ local lsp_installer = require("nvim-lsp-installer")
 lsp_installer.on_server_ready(function(server)
     local opts = {}
 
-
+    if server.name == "ocamlls" then
+        opts.root_dir = require("lspconfig").util.root_pattern('*.ml')
+    end
     server:setup(opts)
 end)
 

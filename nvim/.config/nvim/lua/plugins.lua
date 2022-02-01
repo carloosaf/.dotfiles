@@ -108,5 +108,17 @@ use {'kyazdani42/nvim-tree.lua'}
 
 -- Bufferline
 use {'akinsho/bufferline.nvim'}
+
+-- Colorizer
+use {'norcalli/nvim-colorizer.lua'} 
  
+-- Neovim
+use {'nvim-orgmode/orgmode', config = function()
+        require('orgmode').setup{
+            org_agenda_files = {'~/Dropbox/org/*', '~/my-orgs/**/*'},
+            org_default_notes_file = '~/Dropbox/org/refile.org',
+        }
+end
+}
+
 end)  -- end packer startup

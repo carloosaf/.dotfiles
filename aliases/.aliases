@@ -22,6 +22,7 @@ alias dots="cd /home/carlos/.dotfiles"
                  #######
 
 
+alias gs="git status"
 alias ga="git add"
 alias gc="git commit -m"
 alias gp="git push"
@@ -35,7 +36,17 @@ alias gp="git push"
 alias dfnv="nvim /home/carlos/.dotfiles/nvim/.config/nvim/"
 alias dfa="nvim /home/carlos/.dotfiles/alacritty/.config/alacritty/alacritty.yml"
 alias dfz="nvim /home/carlos/.dotfiles/zsh/.zshrc"
+alias dfx="nvim /home/carlos/.dotfiles/xmonad/xmonad.hs"
+alias dfx="nvim /home/carlos/.dotfiles/xmonad/xmonad.hs"
+alias dfr="nvim /home/carlos/.dotfiles/rofi/.config/rofi/config.rasi
+alias dfp="nvim /home/carlos/.dotfiles/polybar/"
 
+            ###################
+            # KEYBOARD LAYOUT # 
+            ###################
+
+alias kus="setxkbmap us -variant intl"
+alias kes="setxkbmap es"
 
             ####################
             # BATTERY TRESHOLD #

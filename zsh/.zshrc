@@ -52,7 +52,7 @@ preexec() { echo -ne '\e[5 q' ;} # Use beam shape cursor for each new prompt.
 
 
 # Aliases
-source .aliases
+source /home/carlos/.aliases
 
 # Load Starchipo prompt
 eval "$(starship init zsh)"
