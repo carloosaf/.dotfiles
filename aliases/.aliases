@@ -38,7 +38,7 @@ alias dfa="nvim /home/carlos/.dotfiles/alacritty/.config/alacritty/alacritty.yml
 alias dfz="nvim /home/carlos/.dotfiles/zsh/.zshrc"
 alias dfx="nvim /home/carlos/.dotfiles/xmonad/xmonad.hs"
 alias dfx="nvim /home/carlos/.dotfiles/xmonad/xmonad.hs"
-alias dfr="nvim /home/carlos/.dotfiles/rofi/.config/rofi/config.rasi
+alias dfr="nvim /home/carlos/.dotfiles/rofi/.config/rofi/config.rasi"
 alias dfp="nvim /home/carlos/.dotfiles/polybar/"
 
             ###################
