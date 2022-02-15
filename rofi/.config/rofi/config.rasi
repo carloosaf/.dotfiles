@@ -11,11 +11,20 @@ configuration {
 * {
 	bg:			        	#232136;
 	fg:			            #e0def4;
+    dark-fg:                @bg;
 	accent:			    	#c4a7e7;
-    surface:                #2a273f;
-    urgent:                 #ea9a97;
-    active:                 #9ccfd8;
 
+    normal-background:                #2a273f;
+    normal-urgent-background:         #ea9a97;
+    normal-active-background:         #9ccfd8;
+
+    alternate-background:             @normal-background;
+    alternate-urgent-background:      @normal-urgent-background;
+    alternate-active-background:      @normal-active-background;
+
+    selectd-background:               @accent;
+    seleced-urgent-backgroud:         @normal-urgent-background;
+    selected-active-background:       @normal-active-background;
 
 	background-color:		@bg;
 	text-color:			    @fg;
@@ -77,48 +86,48 @@ element {
 }
 
 element.normal.normal{
-    background-color :      @surface;
+    background-color :      @normal-background;
     text-color:             @fg;
 }
 
 element.normal.urgent{
-    background-color :      @urgent;
-    text-color:             @bg;
+    background-color :      @normal-urgent-background;
+    text-color:             @dark-fg;
 }
 
 element.normal.active{
-    background-color :      @surface;
-    text-color:             @active;
+    background-color :      @normal-active-background;
+    text-color:             @dark-fg;
 }
 
 element.alternate.normal{
-    background-color :      @surface;
+    background-color :      @alternate-background;
     text-color:             @fg;
 }
 
 element.alternate.urgent{
-    background-color :      @urgent;
-    text-color:             @bg;
+    background-color :      @alternate-urgent-background;
+    text-color:             @dark-fg;
 }
 
 element.alternate.active{
-    background-color :      @active;
-    text-color:             @bg;
+    background-color :      @alternate-active-background;
+    text-color:             @dark-fg;
 }
 
 element.selected.normal{
-    background-color :      @accent;
-    text-color :            @bg;
+    background-color :      @selectd-background;
+    text-color :            @dark-fg;
 }
 
 element.selected.urgent{
-    background-color :      @urgent;
-    text-color :            @bg;
+    background-color :      @seleced-urgent-backgroud;
+    text-color :            @dark-fg;
 }
 
 element.selected.active{
-    background-color :      @active;
-    text-color :            @bg;
+    background-color :      @selected-active-background;
+    text-color :            @dark-fg;
 }
 
 element-icon {
