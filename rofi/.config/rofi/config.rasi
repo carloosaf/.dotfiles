@@ -12,8 +12,10 @@ configuration {
 	bg:			        	#232136;
 	fg:			            #e0def4;
 	accent:			    	#c4a7e7;
-	button:		    		#1c1c1c;
     surface:                #2a273f;
+    urgent:                 #ea9a97;
+    active:                 #9ccfd8;
+
 
 	background-color:		@bg;
 	text-color:			    @fg;
@@ -23,27 +25,22 @@ window {
 	border-radius:          7px;
 	width:			    	50%;
 	padding: 			    0px;
-    background-color:       @accent;
     border-color:           @accent;
+}
+
+mainbox {
+    children:               [ inputbar, listview ];
+    spacing:                2%;
+    padding:                2% 1% 2% 1%;
+    border-radius:          7px;
+    background-color :      @bg;
 }
 
 prompt {
 	background-color:	    @surface;
 	enabled:			    true;
 	padding:			    0.5% 32px 0% -0.5%;
-	font:				    "Rubik 10";
 }
-
-entry {
-    placeholder:			"Search";
-    placeholder-color:      @fg;
-    expand:                 true;
-    padding:                0.15% 0% 0% 0%;
-    background-color:       @surface;
-    horizontal-align:       0.01;
-    text-color:             @fg;
-}
-
 
 inputbar {
     children:			    [ entry ];
@@ -54,6 +51,15 @@ inputbar {
     padding:                10px;
 }
 
+entry {
+    placeholder:			"Search";
+    placeholder-color:      @fg;
+    expand:                 true;
+    background-color:       @surface;
+    horizontal-align:       0.01;
+    text-color:             @fg;
+}
+
 listview {
     columns:                4;
     lines:	                3;
@@ -61,14 +67,6 @@ listview {
     dynamic:                true;
     layout:                 vertical;
     border:                 0px;
-}
-
-mainbox {
-    children:               [ inputbar, listview ];
-    spacing:                2%;
-    padding:                2% 1% 2% 1%;
-    border-radius:          7px;
-    background-color :      @bg;
 }
 
 element {
@@ -83,13 +81,43 @@ element.normal.normal{
     text-color:             @fg;
 }
 
+element.normal.urgent{
+    background-color :      @urgent;
+    text-color:             @bg;
+}
+
+element.normal.active{
+    background-color :      @surface;
+    text-color:             @active;
+}
+
 element.alternate.normal{
     background-color :      @surface;
     text-color:             @fg;
 }
 
+element.alternate.urgent{
+    background-color :      @urgent;
+    text-color:             @bg;
+}
+
+element.alternate.active{
+    background-color :      @active;
+    text-color:             @bg;
+}
+
 element.selected.normal{
     background-color :      @accent;
+    text-color :            @bg;
+}
+
+element.selected.urgent{
+    background-color :      @urgent;
+    text-color :            @bg;
+}
+
+element.selected.active{
+    background-color :      @active;
     text-color :            @bg;
 }
 
@@ -103,16 +131,6 @@ element-text {
 	horizontal-align:       0.5;
     vertical-align:         0.5;
     margin:                 0.5% 0.5% -0.5% 0.5%;
-}
-
-element-text, element-icon {
-	background-color:		inherit;
-	text-color:			    inherit;
-}
-
-element selected {
-    background-color:       @button;
-    border-radius:          6px;
 }
 
 scrollbar {
