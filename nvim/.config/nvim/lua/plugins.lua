@@ -110,15 +110,22 @@ use {'kyazdani42/nvim-tree.lua'}
 use {'akinsho/bufferline.nvim'}
 
 -- Colorizer
-use {'norcalli/nvim-colorizer.lua'} 
- 
--- Neovim
-use {'nvim-orgmode/orgmode', config = function()
-        require('orgmode').setup{
-            org_agenda_files = {'~/Dropbox/org/*', '~/my-orgs/**/*'},
-            org_default_notes_file = '~/Dropbox/org/refile.org',
-        }
-end
+use {'norcalli/nvim-colorizer.lua'}
+
+-- Spellchecker
+use {
+  'lewis6991/spellsitter.nvim',
+  config = function()
+    require('spellsitter').setup()
+  end
 }
+
+-- Markdow preview
+use {"ellisonleao/glow.nvim"}
+
+use({
+    'rose-pine/neovim',
+    as = 'rose-pine',
+})
 
 end)  -- end packer startup

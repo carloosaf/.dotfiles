@@ -1,6 +1,7 @@
 local luasnip = require("luasnip")
 local cmp = require("cmp")
 local nvim_lsp = require("lspconfig")
+local cmp_autopairs = require('nvim-autopairs.completion.cmp')
 
 local has_words_before = function()
   local line, col = unpack(vim.api.nvim_win_get_cursor(0))
@@ -13,20 +14,18 @@ end
                  ---------------
 
 require('nvim-autopairs').setup{
-  disable_filetype = { "TelescopePrompt" },
+  disable_filetype = { "TelescopePrompt", "gd" },
   disable_in_macro = false,  -- disable when recording or executing a macro
   ignored_next_char = string.gsub([[ [%w%%%'%[%"%.] ]],"%s+", ""),
   enable_moveright = true,
   enable_afterquote = true,  -- add bracket pairs after quote
   enable_check_bracket_line = true,  --- check bracket in same line
-  check_ts = false,
+  check_ts = true,
   map_bs = true,  -- map the <BS> key
   map_c_w = false, -- map <c-w> to delete an pair if possible
 }
 
 -- Autopairs + cmp for auto parenthesis in functions
-local cmp_autopairs = require('nvim-autopairs.completion.cmp')
-local cmp = cmp 
 cmp.event:on( 'confirm_done', cmp_autopairs.on_confirm_done({  map_char = { tex = '' } }))
 
                   ---------
@@ -82,7 +81,6 @@ cmp.setup{
   {name = "luasnip"},
   {name = "path"},
   {name = "buffer", keyword_length = 6},
-  {name = "orgmode"}
   },
 
 }
@@ -94,34 +92,14 @@ local lsp_installer = require("nvim-lsp-installer")
 
 lsp_installer.on_server_ready(function(server)
     local opts = {}
-
-    if server.name == "ocamlls" then
-        opts.root_dir = require("lspconfig").util.root_pattern('*.ml')
-    end
     server:setup(opts)
 end)
 
-nvim_lsp.ocamllsp.setup{
-  on_attach = on_attach,
-  cmd = {"/home/carlos/.opam/default/bin/ocamllsp"},
-  root_dir = require("lspconfig").util.root_pattern('*.ml')
-}
---
---
---[[
-nvim_lsp.pyright.setup{on_attach = on_attach,}
-
-nvim_lsp.ccls.setup{on_attach = on_attach,}
+-- Manually configured servers
 
 nvim_lsp.ocamllsp.setup{
   on_attach = on_attach,
   cmd = {"/home/carlos/.opam/default/bin/ocamllsp"},
   root_dir = require("lspconfig").util.root_pattern('*.ml')
 }
-nvim_lsp.zls.setup{
-  cmd = {"/home/carlos/zls/zls"}
-}
-nvim_lsp.jdtls.setup{on_attach = on_attach,}
-
 nvim_lsp.gdscript.setup{}
-]]--

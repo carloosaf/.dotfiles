@@ -10,6 +10,7 @@ vim.g.mapleader = " "
 keymap('i', 'jk', '<Esc>', opts) -- Insert -> Normal
 keymap('n', '<leader>w', '<cmd>w<cr>', opts) -- Write
 keymap('n', '<leader>q', '<cmd>q<cr>', opts) -- Quit
+keymap('n', '<leader>fm', '<cmd>make<cr>', opts) -- Quit
 
 -- Window navigation
 keymap('n', '<leader>h', '<C-w>h', opts)
@@ -53,7 +54,11 @@ require('which-key').register({
     q = 'Quit',
     w = 'Write',
     ['.'] = 'File browser',
-    ff = 'Find files',
+    f = {
+        name = 'file',
+        f = 'Find files',
+        m = 'Make',
+    },
     t = {
          name = 'telescope',
          n = 'Neoclip',

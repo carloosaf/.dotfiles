@@ -46,14 +46,14 @@ mainbox {
 }
 
 prompt {
-	background-color:	    @surface;
+	background-color:	    @normal-background;
 	enabled:			    true;
 	padding:			    0.5% 32px 0% -0.5%;
 }
 
 inputbar {
     children:			    [ entry ];
-    background-color:       @surface;
+    background-color:       @normal-background;
     expand:                 false;
     border-radius:          6px;
     margin:                 0%;
@@ -64,7 +64,7 @@ entry {
     placeholder:			"Search";
     placeholder-color:      @fg;
     expand:                 true;
-    background-color:       @surface;
+    background-color:       @normal-background;
     horizontal-align:       0.01;
     text-color:             @fg;
 }
