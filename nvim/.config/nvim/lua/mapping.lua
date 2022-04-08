@@ -41,6 +41,16 @@ keymap("n", "<S-l>", ":bnext<CR>", opts)
 keymap("n", "<S-h>", ":bprevious<CR>", opts)
 keymap("n", "<S-d>", ":bdelete<CR>", opts)
 
+-- Lspsaga
+keymap("n", "gr", ":Lspsaga rename<CR>", opts)
+keymap("n", "gx", ":Lspsaga code_action<CR>", opts)
+keymap("n", "K", ":Lspsaga hover_doc<CR>", opts)
+keymap("n", "go", ":Lspsaga show_line_diagnostics<CR>", opts)
+keymap("n", "gj", ":Lspsaga diagnostic_jump_next<CR>", opts)
+keymap("n", "gk", ":Lspsaga diagnostic_jump_prev<CR>", opts)
+keymap("n", "<C-u>", ":lua require('lspsaga.action').smart_scroll_with_saga(-1, '<c-u>')<CR>", opts)
+keymap("n", "<C-d>", ":lua require('lspsaga.action').smart_scroll_with_saga(1, '<c-d>')<CR>", opts)
+
                    -----------------
                    --   WHICHKEY  --
                    -----------------

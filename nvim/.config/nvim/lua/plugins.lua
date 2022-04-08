@@ -62,7 +62,7 @@ require('packer').startup(function()
   use 'saadparwaiz1/cmp_luasnip'
   use 'windwp/nvim-autopairs'
   use 'williamboman/nvim-lsp-installer'
-
+  use { 'tami5/lspsaga.nvim' }
   -- Statusline
 
   use {
