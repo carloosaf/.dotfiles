@@ -42,90 +42,87 @@ packer.init {
 
 
 require('packer').startup(function()
-	use 'wbthomason/packer.nvim'
+    use 'wbthomason/packer.nvim'
 
-  -- Syntax highlight
-  use 'arcticicestudio/nord-vim'
-  use 'mhartington/oceanic-next'
-  use 'sainnhe/everforest'
-  use'rose-pine/neovim'
-  use {'nvim-treesitter/nvim-treesitter'}
+    -- Syntax highlight
+    use 'arcticicestudio/nord-vim'
+    use 'mhartington/oceanic-next'
+    use 'sainnhe/everforest'
+    use'rose-pine/neovim'
+    use {'nvim-treesitter/nvim-treesitter'}
+    use({
+        'rose-pine/neovim',
+        as = 'rose-pine',
+    })
 
-  -- Autocompletion/LSP
-  
-  use 'neovim/nvim-lspconfig'
-  use 'hrsh7th/nvim-cmp'
-  use 'hrsh7th/cmp-buffer'
-  use 'hrsh7th/cmp-path'
-  use 'hrsh7th/cmp-nvim-lsp'
-  use 'L3MON4D3/LuaSnip'
-  use 'saadparwaiz1/cmp_luasnip'
-  use 'windwp/nvim-autopairs'
-  use 'williamboman/nvim-lsp-installer'
-  use { 'tami5/lspsaga.nvim' }
-  -- Statusline
+    -- Autocompletion/LSP
 
-  use {
-    'nvim-lualine/lualine.nvim',
-    requires = {'kyazdani42/nvim-web-devicons', opt = true},
-}
+    use 'neovim/nvim-lspconfig'
+    use 'hrsh7th/nvim-cmp'
+    use 'hrsh7th/cmp-buffer'
+    use 'hrsh7th/cmp-path'
+    use 'hrsh7th/cmp-nvim-lsp'
+    use 'L3MON4D3/LuaSnip'
+    use 'saadparwaiz1/cmp_luasnip'
+    use 'windwp/nvim-autopairs'
+    use 'williamboman/nvim-lsp-installer'
+    use { 'tami5/lspsaga.nvim' }
+    
+    -- Statusline
+    use {
+        'nvim-lualine/lualine.nvim',
+        requires = {'kyazdani42/nvim-web-devicons', opt = true},
+    }
 
-  -- Telescope
-use {
-    'nvim-telescope/telescope.nvim',
-    requires = { {'nvim-lua/plenary.nvim'} },
-}
-use {'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
-use {"AckslD/nvim-neoclip.lua",
-     config = function()
-         require('neoclip').setup()
-     end
-}
+    -- Telescope
+    use {
+        'nvim-telescope/telescope.nvim',
+        requires = { {'nvim-lua/plenary.nvim'} },
+    }
+    use {'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
+    use {
+      "AckslD/nvim-neoclip.lua",
+      config = function()
+        require('neoclip').setup()
+      end,
+    }
+    -- Mappings hints
+    use {"folke/which-key.nvim",}
 
--- Which key
-use {"folke/which-key.nvim",}
+    -- Movement
+    use {'phaazon/hop.nvim',
+        branch = 'v1',
+        config = function()
+            require'hop'.setup { keys = 'etovxqpdygfblzhckisuran' }
+        end,
+    }
 
--- Movement
-use {'phaazon/hop.nvim',
-    branch = 'v1',
-    config = function()
-        require'hop'.setup { keys = 'etovxqpdygfblzhckisuran' }
-    end,
-}
--- Add backet lines
--- use {"lukas-reineke/indent-blankline.nvim",}
+    -- Commentary
+    use {
+        'numToStr/Comment.nvim',
+        config = function()
+            require('Comment').setup()
+        end,
+    }
 
--- Commentary
- use {
-    'numToStr/Comment.nvim',
-    config = function()
-        require('Comment').setup()
-    end,
-}
+    -- Tree
+    use {'kyazdani42/nvim-tree.lua'}
 
--- Tree
-use {'kyazdani42/nvim-tree.lua'}
+    -- Bufferline
+    use {'akinsho/bufferline.nvim'}
 
--- Bufferline
-use {'akinsho/bufferline.nvim'}
+    -- Colorizer
+    use {'norcalli/nvim-colorizer.lua'}
 
--- Colorizer
-use {'norcalli/nvim-colorizer.lua'}
+    --Greeter
+    use {
+    'goolord/alpha-nvim',
+    config = function ()
+        require'alpha'.setup(require'alpha.themes.dashboard'.config)
+    end
+    }
 
--- Spellchecker
-use {
-  'lewis6991/spellsitter.nvim',
-  config = function()
-    require('spellsitter').setup()
-  end
-}
-
--- Markdow preview
-use {"ellisonleao/glow.nvim"}
-
-use({
-    'rose-pine/neovim',
-    as = 'rose-pine',
-})
+    -- Faster loading plugins
+    use 'lewis6991/impatient.nvim'
 
 end)  -- end packer startup

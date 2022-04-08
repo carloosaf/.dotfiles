@@ -26,7 +26,12 @@ keymap("n", "<C-Right>", ":vertical resize -2<CR>", opts)
 
 -- Telescope
 keymap('n', '<leader>ff', ':Telescope find_files<cr>', opts)
+keymap('n', '<leader>fb', ':Telescope current_buffer_fuzzy_find<cr>', opts)
 keymap('n', '<leader>tn', ':Telescope neoclip<cr>', opts)
+keymap('n', '<leader>tgc', ':Telescope git_comits<cr>', opts)
+keymap('n', '<leader>tgb', ':Telescope git_branches<cr>', opts)
+keymap('n', '<leader>tgs', ':Telescope git_status<cr>', opts)
+
 
 -- Move (Hop)
 keymap('n', '<leader>mw', '<cmd>HopWord<cr>', opts)
@@ -55,7 +60,6 @@ keymap("n", "<C-d>", ":lua require('lspsaga.action').smart_scroll_with_saga(1, '
                    --   WHICHKEY  --
                    -----------------
 
-
 require('which-key').register({
     h = 'Window left',
     j = 'Window down',
@@ -68,6 +72,7 @@ require('which-key').register({
         name = 'file',
         f = 'Find files',
         m = 'Make',
+        b = 'Buffer fuzzy find'
     },
     t = {
          name = 'telescope',
