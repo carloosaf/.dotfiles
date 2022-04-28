@@ -77,6 +77,12 @@ require('which-key').register({
     t = {
          name = 'telescope',
          n = 'Neoclip',
+         g = {
+            name = 'git',
+            s = 'Git status',
+            b = 'Git branches',
+            c = 'Git commits',
+       }
     },
     m = {
         name = 'Move (hop)',

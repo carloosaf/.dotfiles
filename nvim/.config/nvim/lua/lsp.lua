@@ -97,9 +97,9 @@ end)
 
 -- Manually configured servers
 
-nvim_lsp.ocamllsp.setup{
-  on_attach = on_attach,
-  cmd = {"/home/carlos/.opam/default/bin/ocamllsp"},
-  root_dir = require("lspconfig").util.root_pattern('*.ml')
-}
+-- nvim_lsp.ocamllsp.setup{
+--   on_attach = on_attach,
+--   cmd = {"/home/carlos/.opam/default/bin/ocamllsp"},
+--   root_dir = require("lspconfig").util.root_pattern('*.ml')
+-- }
 nvim_lsp.gdscript.setup{}

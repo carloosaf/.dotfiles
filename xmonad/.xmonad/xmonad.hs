@@ -131,16 +131,16 @@ myKeys conf@(XConfig {XMonad.modMask = modMask}) = M.fromList $
   ----------------------------------------------------------------------
   -- SUPER + FUNCTION KEYS
 
-  [ ((modMask, xK_e), spawn $ "thunar" )
+  [ ((modMask, xK_e), spawn  "thunar" )
   , ((modMask, xK_c), kill )
  -- , ((modMask, xK_r), spawn $ "dmenu_run -i -nb '#191919' -nf '#fea63c' -sb '#fea63c' -sf '#191919' -fn 'NotoMonoRegular:bold:pixelsize=14'" )
-  , ((modMask, xK_r), spawn $ "rofi -show drun" )
-  , ((modMask, xK_Return), spawn $ "alacritty" )
-  , ((modMask, xK_b), spawn $ "firefox" )
-  , ((modMask, xK_v), spawn $ "pavucontrol" )
-  , ((modMask, xK_x), spawn $ "arcolinux-logout" )
+  , ((modMask, xK_r), spawn  "rofi -show drun" )
+  , ((modMask, xK_Return), spawn  "alacritty" )
+  , ((modMask, xK_b), spawn  "firefox" )
+  , ((modMask, xK_v), spawn  "pavucontrol" )
+  , ((modMask, xK_x), spawn  "arcolinux-logout" )
   , ((modMask, xK_m), sendMessage $ Toggle NBFULL)
-  , ((modMask, xK_n), spawn $ "logseq" )
+  , ((modMask, xK_n), spawn  "logseq" )
   -- , ((modMask, xK_m), spawn $ "pragha" )
   -- , ((modMask, xK_q), kill )
   -- , ((modMask, xK_t), spawn $ "urxvt" )

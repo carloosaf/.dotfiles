@@ -125,4 +125,7 @@ require('packer').startup(function()
     -- Faster loading plugins
     use 'lewis6991/impatient.nvim'
 
+    -- Toggleterm
+    use {"akinsho/toggleterm.nvim"}
+
 end)  -- end packer startup
