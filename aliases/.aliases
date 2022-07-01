@@ -25,7 +25,11 @@ alias dots="cd /home/carlos/.dotfiles"
 alias gs="git status"
 alias ga="git add"
 alias gc="git commit -m"
-alias gp="git push"
+alias gps="git push"
+alias gpl="git pull"
+alias gl="git log"
+alias gb="git brach"
+alias gk="git checkout"
 
 
                ############
