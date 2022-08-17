@@ -138,7 +138,7 @@ myKeys conf@(XConfig {XMonad.modMask = modMask}) = M.fromList $
   , ((modMask, xK_Return), spawn  "alacritty" )
   , ((modMask, xK_b), spawn  "firefox" )
   , ((modMask, xK_v), spawn  "pavucontrol" )
-  , ((modMask, xK_x), spawn  "arcolinux-logout" )
+  , ((modMask, xK_x), spawn  "archlinux-logout" )
   , ((modMask, xK_m), sendMessage $ Toggle NBFULL)
   , ((modMask, xK_n), spawn  "logseq" )
   -- , ((modMask, xK_m), spawn $ "pragha" )
