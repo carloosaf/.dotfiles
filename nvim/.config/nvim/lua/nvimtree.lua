@@ -25,15 +25,6 @@ nvim_tree.setup {
     open_on_tab = false,
     hijack_cursor = false,
     update_cwd = true,
-    diagnostics = {
-        enable = true,
-        icons = {
-            hint = "",
-            info = "",
-            warning = "",
-            error = "",
-        },
-    },
     renderer = {
         icons = {
             glyphs = {

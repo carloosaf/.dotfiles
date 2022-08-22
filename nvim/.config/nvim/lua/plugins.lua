@@ -57,7 +57,6 @@ require('packer').startup(function()
 
     -- Autocompletion/LSP
 
-    use 'neovim/nvim-lspconfig'
     use 'hrsh7th/nvim-cmp'
     use 'hrsh7th/cmp-buffer'
     use 'hrsh7th/cmp-path'
@@ -65,8 +64,11 @@ require('packer').startup(function()
     use 'L3MON4D3/LuaSnip'
     use 'saadparwaiz1/cmp_luasnip'
     use 'windwp/nvim-autopairs'
-    use 'williamboman/nvim-lsp-installer'
-    use { 'tami5/lspsaga.nvim' }
+    use 'tami5/lspsaga.nvim'
+    use 'williamboman/mason.nvim'
+    use "williamboman/mason-lspconfig.nvim"
+    use 'neovim/nvim-lspconfig'
+    use 'simrat39/rust-tools.nvim'
     
     -- Statusline
     use {

@@ -9,6 +9,7 @@ local has_words_before = function()
 end
 
 
+
                  ---------------
                  -- AUTOPAIRS --
                  ---------------
@@ -76,10 +77,10 @@ cmp.setup{
   },
 
   sources = {
-  {name = "nvim_lsp"},
-  {name = "luasnip"},
-  {name = "path"},
-  {name = "buffer", keyword_length = 6},
+        {name = "nvim_lsp"},
+        {name = "luasnip"},
+        {name = "path"},
+        {name = "buffer", keyword_length = 6},
   },
 
 }
@@ -87,12 +88,11 @@ cmp.setup{
                    ---------
                    -- LSP --
                    ---------
-local lsp_installer = require("nvim-lsp-installer")
 
-lsp_installer.on_server_ready(function(server)
-    local opts = {}
-    server:setup(opts)
-end)
+require("mason").setup()
+require("mason-lspconfig").setup()
+local server_opts = {}
+nvim_lsp.rust_analyzer.setup(server_opts)
 
 -- Manually configured servers
 
@@ -101,4 +101,4 @@ end)
 --   cmd = {"/home/carlos/.opam/default/bin/ocamllsp"},
 --   root_dir = require("lspconfig").util.root_pattern('*.ml')
 -- }
-nvim_lsp.gdscript.setup{}
+-- nvim_lsp.gdscript.setup{}

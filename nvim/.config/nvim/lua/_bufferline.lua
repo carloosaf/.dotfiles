@@ -1,3 +1,1 @@
-require('bufferline').setup {
-    diagnostics = false,
-}
+require('bufferline').setup {}
