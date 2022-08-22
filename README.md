@@ -6,7 +6,7 @@ This repository contains my personal dotfiles, feel free to copy anything you fi
 
 ## Stow
 
-I use stow to easily manage my dotfiles and restore my dotfiles. The weird folder structure of
+I use stow to easily manage and restore my dotfiles. The weird folder structure of
 the repo helps restoring the files in new installations , you can just run `stow <appname>` and it
 will symlink the dotfiles to its correct location.
 
