@@ -82,12 +82,7 @@ require('packer').startup(function()
         requires = { {'nvim-lua/plenary.nvim'} },
     }
     use {'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
-    use {
-      "AckslD/nvim-neoclip.lua",
-      config = function()
-        require('neoclip').setup()
-      end,
-    }
+    
     -- Mappings hints
     use {"folke/which-key.nvim",}
 
@@ -112,9 +107,6 @@ require('packer').startup(function()
 
     -- Bufferline
     use {'akinsho/bufferline.nvim'}
-
-    -- Colorizer
-    use {'norcalli/nvim-colorizer.lua'}
 
     --Greeter
     use {
