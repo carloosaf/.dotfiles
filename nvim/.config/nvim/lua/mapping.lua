@@ -27,10 +27,10 @@ keymap("n", "<C-Right>", ":vertical resize -2<CR>", opts)
 -- Telescope
 keymap('n', '<leader>ff', ':Telescope find_files<cr>', opts)
 keymap('n', '<leader>fb', ':Telescope current_buffer_fuzzy_find<cr>', opts)
-keymap('n', '<leader>tn', ':Telescope neoclip<cr>', opts)
-keymap('n', '<leader>tgc', ':Telescope git_comits<cr>', opts)
+keymap('n', '<leader>tgc', ':Telescope git_commits<cr>', opts)
 keymap('n', '<leader>tgb', ':Telescope git_branches<cr>', opts)
 keymap('n', '<leader>tgs', ':Telescope git_status<cr>', opts)
+keymap('n', '<leader>tt', ':TodoTelescope<cr>', opts)
 
 
 -- Move (Hop)
@@ -76,7 +76,7 @@ require('which-key').register({
     },
     t = {
          name = 'telescope',
-         n = 'Neoclip',
+         t = 'To-Dos',
          g = {
             name = 'git',
             s = 'Git status',
