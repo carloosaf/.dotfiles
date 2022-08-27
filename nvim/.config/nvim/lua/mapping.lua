@@ -27,9 +27,6 @@ keymap("n", "<C-Right>", ":vertical resize -2<CR>", opts)
 -- Telescope
 keymap('n', '<leader>ff', ':Telescope find_files<cr>', opts)
 keymap('n', '<leader>fb', ':Telescope current_buffer_fuzzy_find<cr>', opts)
-keymap('n', '<leader>tgc', ':Telescope git_commits<cr>', opts)
-keymap('n', '<leader>tgb', ':Telescope git_branches<cr>', opts)
-keymap('n', '<leader>tgs', ':Telescope git_status<cr>', opts)
 keymap('n', '<leader>tt', ':TodoTelescope<cr>', opts)
 
 
@@ -53,8 +50,15 @@ keymap("n", "K", ":Lspsaga hover_doc<CR>", opts)
 keymap("n", "go", ":Lspsaga show_line_diagnostics<CR>", opts)
 keymap("n", "gj", ":Lspsaga diagnostic_jump_next<CR>", opts)
 keymap("n", "gk", ":Lspsaga diagnostic_jump_prev<CR>", opts)
-keymap("n", "<C-u>", ":lua require('lspsaga.action').smart_scroll_with_saga(-1, '<c-u>')<CR>", opts)
-keymap("n", "<C-d>", ":lua require('lspsaga.action').smart_scroll_with_saga(1, '<c-d>')<CR>", opts)
+
+--Git
+keymap('n', '<leader>gic', ':Telescope git_commits<cr>', opts)
+keymap('n', '<leader>gib', ':Telescope git_branches<cr>', opts)
+keymap('n', '<leader>gis', ':Telescope git_status<cr>', opts)
+keymap('n', '<leader>gij', ':Gitsings prev_hunk<cr>', opts)
+keymap('n', '<leader>gik', ':Gitsings next_hunk<cr>', opts)
+keymap('n', '<leader>gid', ':Gitsings diffthis<cr>', opts)
+keymap('n', '<leader>gir', ':Gitsings reset_hunk<cr>', opts)
 
                    -----------------
                    --   WHICHKEY  --
@@ -77,12 +81,6 @@ require('which-key').register({
     t = {
          name = 'telescope',
          t = 'To-Dos',
-         g = {
-            name = 'git',
-            s = 'Git status',
-            b = 'Git branches',
-            c = 'Git commits',
-       }
     },
     m = {
         name = 'Move (hop)',
@@ -90,5 +88,15 @@ require('which-key').register({
         c = {'Move characters'},
         w = {'Move words'},
     },
+    gi = {
+        name = 'git',
+        s = 'Git status',
+        b = 'Git branches',
+        c = 'Git commits',
+        j = 'Next hunk',
+        k = 'Previous hunk',
+        d = 'Diff',
+        r = 'Reset',
+    }
 },
     {prefix = "<leader>"})
