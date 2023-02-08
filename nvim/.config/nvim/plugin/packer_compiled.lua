@@ -9,23 +9,26 @@ vim.api.nvim_command('packadd packer.nvim')
 
 local no_errors, error_msg = pcall(function()
 
-  local time
-  local profile_info
-  local should_profile = false
-  if should_profile then
-    local hrtime = vim.loop.hrtime
-    profile_info = {}
-    time = function(chunk, start)
-      if start then
-        profile_info[chunk] = hrtime()
-      else
-        profile_info[chunk] = (hrtime() - profile_info[chunk]) / 1e6
-      end
+_G._packer = _G._packer or {}
+_G._packer.inside_compile = true
+
+local time
+local profile_info
+local should_profile = false
+if should_profile then
+  local hrtime = vim.loop.hrtime
+  profile_info = {}
+  time = function(chunk, start)
+    if start then
+      profile_info[chunk] = hrtime()
+    else
+      profile_info[chunk] = (hrtime() - profile_info[chunk]) / 1e6
     end
-  else
-    time = function(chunk, start) end
   end
-  
+else
+  time = function(chunk, start) end
+end
+
 local function save_profiles(threshold)
   local sorted_times = {}
   for chunk_name, time_taken in pairs(profile_info) do
@@ -38,8 +41,10 @@ local function save_profiles(threshold)
       results[i] = elem[1] .. ' took ' .. elem[2] .. 'ms'
     end
   end
+  if threshold then
+    table.insert(results, '(Only showing plugins that took longer than ' .. threshold .. ' ms ' .. 'to load)')
+  end
 
-  _G._packer = _G._packer or {}
   _G._packer.profile_output = results
 end
 
@@ -80,12 +85,6 @@ _G.packer_plugins = {
     path = "/home/carlos/.local/share/nvim/site/pack/packer/start/LuaSnip",
     url = "https://github.com/L3MON4D3/LuaSnip"
   },
-  ["alpha-nvim"] = {
-    config = { "\27LJ\2\na\0\0\5\0\5\0\n6\0\0\0'\2\1\0B\0\2\0029\0\2\0006\2\0\0'\4\3\0B\2\2\0029\2\4\2B\0\2\1K\0\1\0\vconfig\27alpha.themes.dashboard\nsetup\nalpha\frequire\0" },
-    loaded = true,
-    path = "/home/carlos/.local/share/nvim/site/pack/packer/start/alpha-nvim",
-    url = "https://github.com/goolord/alpha-nvim"
-  },
   ["bufferline.nvim"] = {
     loaded = true,
     path = "/home/carlos/.local/share/nvim/site/pack/packer/start/bufferline.nvim",
@@ -101,6 +100,11 @@ _G.packer_plugins = {
     path = "/home/carlos/.local/share/nvim/site/pack/packer/start/cmp-nvim-lsp",
     url = "https://github.com/hrsh7th/cmp-nvim-lsp"
   },
+  ["cmp-nvim-lua"] = {
+    loaded = true,
+    path = "/home/carlos/.local/share/nvim/site/pack/packer/start/cmp-nvim-lua",
+    url = "https://github.com/hrsh7th/cmp-nvim-lua"
+  },
   ["cmp-path"] = {
     loaded = true,
     path = "/home/carlos/.local/share/nvim/site/pack/packer/start/cmp-path",
@@ -111,10 +115,10 @@ _G.packer_plugins = {
     path = "/home/carlos/.local/share/nvim/site/pack/packer/start/cmp_luasnip",
     url = "https://github.com/saadparwaiz1/cmp_luasnip"
   },
-  everforest = {
+  ["friendly-snippets"] = {
     loaded = true,
-    path = "/home/carlos/.local/share/nvim/site/pack/packer/start/everforest",
-    url = "https://github.com/sainnhe/everforest"
+    path = "/home/carlos/.local/share/nvim/site/pack/packer/start/friendly-snippets",
+    url = "https://github.com/rafamadriz/friendly-snippets"
   },
   ["gitsigns.nvim"] = {
     config = { "\27LJ\2\n6\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\rgitsigns\frequire\0" },
@@ -122,26 +126,15 @@ _G.packer_plugins = {
     path = "/home/carlos/.local/share/nvim/site/pack/packer/start/gitsigns.nvim",
     url = "https://github.com/lewis6991/gitsigns.nvim"
   },
-  ["hop.nvim"] = {
-    config = { "\27LJ\2\nU\0\0\3\0\4\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0B\0\2\1K\0\1\0\1\0\1\tkeys\28etovxqpdygfblzhckisuran\nsetup\bhop\frequire\0" },
-    loaded = true,
-    path = "/home/carlos/.local/share/nvim/site/pack/packer/start/hop.nvim",
-    url = "https://github.com/phaazon/hop.nvim"
-  },
   ["impatient.nvim"] = {
     loaded = true,
     path = "/home/carlos/.local/share/nvim/site/pack/packer/start/impatient.nvim",
     url = "https://github.com/lewis6991/impatient.nvim"
   },
-  ["lspkind.nvim"] = {
+  ["lsp-zero.nvim"] = {
     loaded = true,
-    path = "/home/carlos/.local/share/nvim/site/pack/packer/start/lspkind.nvim",
-    url = "https://github.com/onsails/lspkind.nvim"
-  },
-  ["lspsaga.nvim"] = {
-    loaded = true,
-    path = "/home/carlos/.local/share/nvim/site/pack/packer/start/lspsaga.nvim",
-    url = "https://github.com/tami5/lspsaga.nvim"
+    path = "/home/carlos/.local/share/nvim/site/pack/packer/start/lsp-zero.nvim",
+    url = "https://github.com/VonHeikemen/lsp-zero.nvim"
   },
   ["lualine.nvim"] = {
     loaded = true,
@@ -158,21 +151,6 @@ _G.packer_plugins = {
     path = "/home/carlos/.local/share/nvim/site/pack/packer/start/mason.nvim",
     url = "https://github.com/williamboman/mason.nvim"
   },
-  neovim = {
-    loaded = true,
-    path = "/home/carlos/.local/share/nvim/site/pack/packer/start/neovim",
-    url = "https://github.com/rose-pine/neovim"
-  },
-  ["nord-vim"] = {
-    loaded = true,
-    path = "/home/carlos/.local/share/nvim/site/pack/packer/start/nord-vim",
-    url = "https://github.com/arcticicestudio/nord-vim"
-  },
-  ["nvim-autopairs"] = {
-    loaded = true,
-    path = "/home/carlos/.local/share/nvim/site/pack/packer/start/nvim-autopairs",
-    url = "https://github.com/windwp/nvim-autopairs"
-  },
   ["nvim-cmp"] = {
     loaded = true,
     path = "/home/carlos/.local/share/nvim/site/pack/packer/start/nvim-cmp",
@@ -186,7 +164,7 @@ _G.packer_plugins = {
   ["nvim-tree.lua"] = {
     loaded = true,
     path = "/home/carlos/.local/share/nvim/site/pack/packer/start/nvim-tree.lua",
-    url = "https://github.com/kyazdani42/nvim-tree.lua"
+    url = "https://github.com/nvim-tree/nvim-tree.lua"
   },
   ["nvim-treesitter"] = {
     loaded = true,
@@ -196,12 +174,7 @@ _G.packer_plugins = {
   ["nvim-web-devicons"] = {
     loaded = true,
     path = "/home/carlos/.local/share/nvim/site/pack/packer/start/nvim-web-devicons",
-    url = "https://github.com/kyazdani42/nvim-web-devicons"
-  },
-  ["oceanic-next"] = {
-    loaded = true,
-    path = "/home/carlos/.local/share/nvim/site/pack/packer/start/oceanic-next",
-    url = "https://github.com/mhartington/oceanic-next"
+    url = "https://github.com/nvim-tree/nvim-web-devicons"
   },
   ["packer.nvim"] = {
     loaded = true,
@@ -214,14 +187,10 @@ _G.packer_plugins = {
     url = "https://github.com/nvim-lua/plenary.nvim"
   },
   ["rose-pine"] = {
+    config = { "\27LJ\2\n~\0\0\3\0\a\0\v6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0B\0\2\0016\0\4\0009\0\5\0'\2\6\0B\0\2\1K\0\1\0\26colorscheme rose-pine\bcmd\bvim\1\0\1\17dark_variant\tmoon\nsetup\14rose-pine\frequire\0" },
     loaded = true,
     path = "/home/carlos/.local/share/nvim/site/pack/packer/start/rose-pine",
     url = "https://github.com/rose-pine/neovim"
-  },
-  ["rust-tools.nvim"] = {
-    loaded = true,
-    path = "/home/carlos/.local/share/nvim/site/pack/packer/start/rust-tools.nvim",
-    url = "https://github.com/simrat39/rust-tools.nvim"
   },
   ["telescope-fzf-native.nvim"] = {
     loaded = true,
@@ -239,23 +208,22 @@ _G.packer_plugins = {
     path = "/home/carlos/.local/share/nvim/site/pack/packer/start/todo-comments.nvim",
     url = "https://github.com/folke/todo-comments.nvim"
   },
-  ["toggleterm.nvim"] = {
+  ["trouble.nvim"] = {
     loaded = true,
-    path = "/home/carlos/.local/share/nvim/site/pack/packer/start/toggleterm.nvim",
-    url = "https://github.com/akinsho/toggleterm.nvim"
-  },
-  ["which-key.nvim"] = {
-    loaded = true,
-    path = "/home/carlos/.local/share/nvim/site/pack/packer/start/which-key.nvim",
-    url = "https://github.com/folke/which-key.nvim"
+    path = "/home/carlos/.local/share/nvim/site/pack/packer/start/trouble.nvim",
+    url = "https://github.com/folke/trouble.nvim"
   }
 }
 
 time([[Defining packer_plugins]], false)
--- Config for: alpha-nvim
-time([[Config for alpha-nvim]], true)
-try_loadstring("\27LJ\2\na\0\0\5\0\5\0\n6\0\0\0'\2\1\0B\0\2\0029\0\2\0006\2\0\0'\4\3\0B\2\2\0029\2\4\2B\0\2\1K\0\1\0\vconfig\27alpha.themes.dashboard\nsetup\nalpha\frequire\0", "config", "alpha-nvim")
-time([[Config for alpha-nvim]], false)
+-- Config for: rose-pine
+time([[Config for rose-pine]], true)
+try_loadstring("\27LJ\2\n~\0\0\3\0\a\0\v6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0B\0\2\0016\0\4\0009\0\5\0'\2\6\0B\0\2\1K\0\1\0\26colorscheme rose-pine\bcmd\bvim\1\0\1\17dark_variant\tmoon\nsetup\14rose-pine\frequire\0", "config", "rose-pine")
+time([[Config for rose-pine]], false)
+-- Config for: gitsigns.nvim
+time([[Config for gitsigns.nvim]], true)
+try_loadstring("\27LJ\2\n6\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\rgitsigns\frequire\0", "config", "gitsigns.nvim")
+time([[Config for gitsigns.nvim]], false)
 -- Config for: Comment.nvim
 time([[Config for Comment.nvim]], true)
 try_loadstring("\27LJ\2\n5\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\fComment\frequire\0", "config", "Comment.nvim")
@@ -264,14 +232,13 @@ time([[Config for Comment.nvim]], false)
 time([[Config for todo-comments.nvim]], true)
 try_loadstring("\27LJ\2\n?\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0004\2\0\0B\0\2\1K\0\1\0\nsetup\18todo-comments\frequire\0", "config", "todo-comments.nvim")
 time([[Config for todo-comments.nvim]], false)
--- Config for: hop.nvim
-time([[Config for hop.nvim]], true)
-try_loadstring("\27LJ\2\nU\0\0\3\0\4\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0B\0\2\1K\0\1\0\1\0\1\tkeys\28etovxqpdygfblzhckisuran\nsetup\bhop\frequire\0", "config", "hop.nvim")
-time([[Config for hop.nvim]], false)
--- Config for: gitsigns.nvim
-time([[Config for gitsigns.nvim]], true)
-try_loadstring("\27LJ\2\n6\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\rgitsigns\frequire\0", "config", "gitsigns.nvim")
-time([[Config for gitsigns.nvim]], false)
+
+_G._packer.inside_compile = false
+if _G._packer.needs_bufread == true then
+  vim.cmd("doautocmd BufRead")
+end
+_G._packer.needs_bufread = false
+
 if should_profile then save_profiles() end
 
 end)
