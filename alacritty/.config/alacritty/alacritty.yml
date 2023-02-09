@@ -182,7 +182,7 @@ colors:
 
 font:
   size: 9.0
-  #size: 12.0
+  # size: 12.0
   ligatures: true
   normal:
     family: FantasqueSansMono Nerd Font Mono
