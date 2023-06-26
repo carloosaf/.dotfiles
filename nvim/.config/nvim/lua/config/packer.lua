@@ -9,6 +9,7 @@ return require('packer').startup(function(use)
         config = function()
             require("rose-pine").setup({
                 dark_variant= 'moon',
+	            disable_italics = true,
             })
             vim.cmd('colorscheme rose-pine')
         end
@@ -86,4 +87,10 @@ return require('packer').startup(function(use)
         end
     }
 
+    use 'github/copilot.vim'
+
+    use {
+        "windwp/nvim-autopairs",
+        config = function() require("nvim-autopairs").setup {} end
+    }
 end)

@@ -4,7 +4,7 @@ from libqtile import widget
 def icon(text):
     return widget.TextBox(
         text=text,
-        fontsize="22",
+        fontsize="12",
         foreground="#c4a7e7",
         background="#232136",
         padding=6,
@@ -40,7 +40,7 @@ widget_list = [
     right_round(),
     widget.Spacer(),
     left_round(),
-    icon(""),
+    icon("󰃰"),
     widget.Clock(
         format="%d/%m/%Y - %H:%M",
         background="#232136",

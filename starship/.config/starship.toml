@@ -22,7 +22,7 @@ deleted = "✗ " #Default looks weird with my FantasqueSans font
 [character]                            
 vicmd_symbol = "[](fg:bold green)"
 error_symbol = "[✗](bold red) "
-success_symbol = "[➜ ](purple)"     
+success_symbol = "[➜](purple)"     
 
 [cmd_duration]
 format = "Took [$duration]($style) \n" #Places duratin in a line before the actual prompt

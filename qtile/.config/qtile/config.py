@@ -53,12 +53,12 @@ keys = [
     Key([mod], "x", lazy.spawn("archlinux-logout"), desc="Shutdown options menu"),
     Key([mod], "r", lazy.spawn("rofi -show drun"), desc="Spawn run menu"),
     Key([mod], "b", lazy.spawn("brave"), desc="Browser"),
-    Key([mod], "e", lazy.spawn("thunar"), desc="File browser"),
+    Key([mod], "e", lazy.spawn("nautilus"), desc="File browser"),
     Key([mod], "v", lazy.spawn("pavucontrol"), desc="Volume manager"),
     # Restart Qtile
     Key([mod, "control"], "r", lazy.reload_config(), desc="Reload the config"),
     # Media keys
-    Key([], "XF86AudioMute", lazy.spawn("amixer -q set Master toggle")),
+    Key([], "XF86AudioMute", lazy.spawn("pactl set-sink-mute 0 toggle")),
     Key([], "XF86AudioRaiseVolume", lazy.spawn("amixer -q set Master 5%+")),
     Key([], "XF86AudioLowerVolume", lazy.spawn("amixer -q set Master 5%-")),
     Key([], "XF86MonBrightnessUp", lazy.spawn("brightnessctl set 5%+")),
@@ -110,7 +110,7 @@ layouts = [
 ]
 
 widget_defaults = dict(
-    font="FantasqueSansMono Nerd Font Mono",
+    font="FantasqueSansM Nerd Font",
     fontsize=16,
     padding=3,
 )
