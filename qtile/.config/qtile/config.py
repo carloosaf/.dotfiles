@@ -52,7 +52,7 @@ keys = [
     Key([mod], "Return", lazy.spawn(terminal), desc="Launch terminal"),
     Key([mod], "x", lazy.spawn("archlinux-logout"), desc="Shutdown options menu"),
     Key([mod], "r", lazy.spawn("rofi -show drun"), desc="Spawn run menu"),
-    Key([mod], "b", lazy.spawn("brave"), desc="Browser"),
+    Key([mod], "b", lazy.spawn("brave-browser"), desc="Browser"),
     Key([mod], "e", lazy.spawn("nautilus"), desc="File browser"),
     Key([mod], "v", lazy.spawn("pavucontrol"), desc="Volume manager"),
     # Restart Qtile
@@ -110,7 +110,7 @@ layouts = [
 ]
 
 widget_defaults = dict(
-    font="FantasqueSansM Nerd Font",
+    font="Maple Mono NF",
     fontsize=16,
     padding=3,
 )

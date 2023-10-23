@@ -181,18 +181,21 @@ colors:
 #     white:   '0xe0def4'
 
 font:
-  size: 9.0
+  size: 12.0
   # size: 12.0
-  ligatures: true
   normal:
-    family: FantasqueSansM Nerd Font Mono
+    # family: IosevkaTerm Nerd Font Mono
+    family: Maple Mono NF
     style: Regular
   Bold:
-    family: FantasqueSansM Nerd Font Mono
+    family: Maple Mono NF
+    # family: IosevkaTerm Nerd Font Mono
     style: Bold
   italic:
-    family: FantasqueSansM Nerd Font Mono
-    style: Italic
+    # family: IosevkaTerm Nerd Font Mono
+    family: Maple Mono NF
+    style: Light Italic
   bold_italic:
-    family: FantasqueSansM Nerd Font Mono
+    # family: IosevkaTerm Nerd Font MonoIosevkaTerm Nerd Font Mono
+    family: Maple Mono NF
     style: Bold Italic
